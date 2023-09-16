@@ -1,0 +1,60 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: black;
+  margin: 10% 0;
+}
+.img-container {
+  display: grid;
+  width: 300px;
+  height: 300px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.img-item {
+  /* 白线阴影 */
+  box-shadow: inset 0 0 0 1px #fff;
+  transition: 0.5s;
+  background-image: url(./preview.jpg);
+  background-size: 300px 300px;
+  position: relative;
+}
+/* 选择九宫格左边的一列 left column */
+.img-item:nth-child(3n + 1) {
+  left: -20px;
+  background-position-x: 0;
+}
+/* 选择九宫格中间的一列 center column */
+.img-item:nth-child(3n + 2) {
+  left: 0px;
+  background-position-x: -100px;
+}
+/* 选择九宫格右边的一列 right column */
+.img-item:nth-child(3n) {
+  left: 20px;
+  background-position-x: -200px;
+}
+
+/* 看似是选择全部，实际上是选择九宫格底部的一行，因为下面的样式会覆盖中间的行和顶部的行 bottom row  */
+.img-item:nth-child(n) {
+  top: 20px;
+  background-position-y: -200px;
+}
+/* 选择九宫格中间的一行 center row */
+.img-item:nth-child(-n + 6) {
+  top: 0;
+  background-position-y: -100px;
+}
+/* 选择九宫格顶间的一行 top row */
+.img-item:nth-child(-n + 3) {
+  top: -20px;
+  background-position-y: 0;
+}
+
+/* 当鼠标移入时，去除偏移和阴影 */
+.img-container:hover .img-item {
+  left: 0;
+  top: 0;
+  box-shadow: inset 0 0 0 0 #fff;
+}
