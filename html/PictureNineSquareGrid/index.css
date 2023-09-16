@@ -16,7 +16,7 @@ body {
   /* 白线阴影 */
   box-shadow: inset 0 0 0 1px #fff;
   transition: 0.5s;
-  background-image: url(./preview.jpg);
+  background-image: url(./image.jpg);
   background-size: 300px 300px;
   position: relative;
 }
